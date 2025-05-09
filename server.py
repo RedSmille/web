@@ -16,7 +16,12 @@ from respuestas_chatbot import ObtenerRespuesta
 import locale
 from datetime import datetime
 
-locale.setlocale(locale.LC_TIME, 'Spanish_Spain.1252')
+import locale
+
+try:
+    locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8')
+except locale.Error:
+    print("La configuración regional 'es_ES.UTF-8' no está disponible. Usando la predeterminada.")
 
 # Inicialización del chatbot
 Lematizador = WordNetLemmatizer()
